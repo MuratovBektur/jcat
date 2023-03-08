@@ -1,6 +1,11 @@
 git pull;
 
 source docker-compose-name.sh;
+
+# устанавливаем зависимости для laravel чтобы 
+# можно было сбилдит server через docker compose
+cd server && ./install_packages.sh && cd ..;
+
 # собираем все файлы переменного окружения в один файл
 cat configs/.env.dev configs/client/.env.dev configs/server/.env.dev > .env;
 

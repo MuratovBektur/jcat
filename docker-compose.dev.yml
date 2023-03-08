@@ -20,12 +20,11 @@ services:
       - './configs/client/.env.dev:/app/.env'
   server:
     build:
-      context: ./server/docker/7.4
+      context: ./server/vendor/laravel/sail/runtimes/7.4
       dockerfile: Dockerfile
       args:
         WWWGROUP: ${WWWGROUP:?}
         WWWUSER: ${WWWUSER:?}
-    image: sail-7.4/app
     container_name: jcat_dev_server
     extra_hosts:
       - 'host.docker.internal:host-gateway'

@@ -5,11 +5,10 @@ name: jcat_prod
 services:
   server:
     build:
-      context: ./server/docker/7.4
+      context: ./server/vendor/laravel/sail/runtimes/7.4
       dockerfile: Dockerfile
       args:
         WWWGROUP: '${WWWGROUP:?}'
-    image: sail-7.4/app
     container_name: jcat_prod_server
     extra_hosts:
       - 'host.docker.internal:host-gateway'

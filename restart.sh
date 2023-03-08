@@ -1,6 +1,10 @@
 git pull;
 source docker-compose-name.sh;
 
+# устанавливаем зависимости для laravel чтобы 
+# можно было сбилдит server через docker compose
+cd server && ./install_packages.sh && cd ..;
+
 cp configs/client/.env client/.env
 
 cd client;
