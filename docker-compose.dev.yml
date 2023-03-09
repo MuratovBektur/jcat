@@ -17,7 +17,7 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ./client:/app
-      - ./configs/client/.env:/app/
+      - ./configs/client/.env.dev:/app/.env
   server:
     build:
       context: ./server/vendor/laravel/sail/runtimes/7.4

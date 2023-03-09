@@ -5,7 +5,8 @@ source docker-compose-name.sh;
 # можно было сбилдит server через docker compose
 cd server && ./install_packages.sh && cd ..;
 
-cp configs/client/.env client/.env
+rm -f client/.env
+cp configs/client/.env client/.env || exit 1;
 
 cd client;
 source ./build.sh;
