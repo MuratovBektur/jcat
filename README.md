@@ -24,7 +24,7 @@
 ### Чтобы создать и заполнить бд нужными данными - пропишите в корне проекта (после запуска проекта т.к sail не работает пока проект не запущен):
 
 ```bash
-cd server &&  ./sail artisan migrate --force && ./sail artisan db:seed --force
+cd server && ./sail artisan migrate:refresh --seed --force
 ```
 В режиме разработки замените sail на sail-dev в вышеуказанной команде
 
