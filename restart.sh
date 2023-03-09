@@ -3,10 +3,11 @@ source docker-compose-name.sh;
 
 # устанавливаем зависимости для laravel чтобы 
 # можно было сбилдит server через docker compose
-cd server && ./install_packages.sh && cd ..;
+# и выставляем права 
+cd server && ./install_package_and_set_permissions.sh && cd ..;
 
 rm -f client/.env
-cp configs/client/.env client/.env || exit 1;
+cp configs/client/.env client/.env;
 
 cd client;
 source ./build.sh;
