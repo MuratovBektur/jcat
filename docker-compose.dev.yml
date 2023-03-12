@@ -51,8 +51,6 @@ services:
       - client
       - server
       - phpmyadmin
-    environment:
-      DB_PORT: ${DB_PORT:?}
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ./nginx/dev:/etc/nginx/conf.d  

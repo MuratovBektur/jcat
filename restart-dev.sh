@@ -1,5 +1,8 @@
 git pull;
 
+# получем имя докер композера 
+# (либо docker compose либо docker-compose)
+# по которому можно обращятся
 source docker-compose-name.sh;
 
 # устанавливаем зависимости для laravel чтобы 
@@ -7,8 +10,12 @@ source docker-compose-name.sh;
 # и выставляем права 
 cd server && ./install_package_and_set_permissions.sh && cd ..;
 
-# собираем все файлы переменного окружения в один файл
-cat configs/.env.dev configs/client/.env.dev configs/server/.env.dev > .env;
+# выставляем все переменые окружение из файлов наружу
+set -a
+source configs/server/.env.dev
+source configs/client/.env.dev
+source configs/.env.dev
+set +a
 
 "${DOCKER_COMPOSE[@]}" -f docker-compose.dev.yml down -v;
 "${DOCKER_COMPOSE[@]}" -f docker-compose.dev.yml up -d --build;
